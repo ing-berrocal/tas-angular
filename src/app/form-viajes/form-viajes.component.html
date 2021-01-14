@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <ngb-alert *ngIf="showMensaje" [type]="alerta.type" (closed)="cerrar()">{{ alerta.message }}</ngb-alert>
+        </div>        
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <form  [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="form-documento">Documento</label>
+              <input type="text" class="form-control" id="form-documento" placeholder="Numero" formControlName="documento">
+              <div *ngIf="controles.documento.status == 'INVALID' && (controles.documento.touched)" class="alert alert-danger">
+                <div *ngIf="controles.documento.errors.required">
+                    Documento es requerido
+                </div>
+                <div *ngIf="controles.documento.errors.pattern">
+                    Solo caracteres numericos
+                </div>                
+              </div>
+            </div>                        
+            <div class="form-group">
+                <label for="archivo">Archivo</label>
+                <input type="file" class="form-control-file" id="archivo" (change)="handleFileInput($event.target.files)" accept=".txt">
+                <div *ngIf="controles.archivo.status == 'INVALID' && (registroForm.touched)" class="alert alert-danger">
+                    <div *ngIf="controles.archivo.errors.required">
+                        Archivo es requerido
+                    </div>                    
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+                <div class="col-sm-4">                    
+                    <a routerLink="/" routerLinkActive="active" class="btn btn-danger active" role="button">Cancelar</a>
+                </div>
+            </div>                        
+          </form>
+      </div>      
+    </div>
+  </div>

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col">
+        <a routerLink="/form" routerLinkActive="active" class="btn btn-success" role="button">Agregar</a>
+    </div>
+</div>
+<div class="row">    
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Documento</th>
+              <th scope="col">Fecha de ejecución</th>
+              <th scope="col">Resultado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let lista of listado; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>                
+                {{ lista.documento }}
+              </td>
+              <td>{{ lista.fecha }}</td>
+              <td>
+                  <button class="btn btn-primary" (click)="descargarArchivo(lista)">Descargar</button>
+              </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>

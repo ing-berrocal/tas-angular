@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "techandsolve-app"
+    }
+  },
+  "defaultProject": "techandsolve-app",
+  "cli": {
+    "analytics": "9504e49f-2adb-438b-9ef8-58812afc2ff2"
+  }
 }
